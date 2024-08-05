@@ -1,0 +1,50 @@
+name: WorldManager
+version: '1.0-SNAPSHOT'
+main: vdaysky.worldmanager.WorldManager
+api-version: '1.21'
+commands:
+    worldmanager:
+        description: open WorldManager GUI
+        usage: /<command>
+        permission: worldmanager.command
+        aliases:
+        - wm
+    permission:
+        description: Test permissions
+        usage: /<command>
+
+permissions:
+    worldmanager.*:
+        description: Permission to use all WorldManager functions
+        default: op
+        children:
+            worldmanager.admin: true
+            worldmanager.command: true
+            worldmanager.create: true
+            worldmanager.delete: true
+            worldmanager.load: true
+            worldmanager.unload: true
+            worldmanager.import: true
+
+    worldmanager.admin:
+        description: Permission to use administrative functions
+        default: op
+    worldmanager.command:
+        description: Permission to use WorldManager command
+        default: true
+    worldmanager.create:
+        description: Permission to create new worlds
+        default: op
+    worldmanager.delete:
+        description: Permission to delete unloaded worlds
+        default: op
+    worldmanager.load:
+        description: Permission to load unloaded worlds
+        default: op
+    worldmanager.unload:
+        description: Permission to unload loaded worlds
+        default: op
+    worldmanager.import:
+        description: Permission to import worlds
+        default: op
+
