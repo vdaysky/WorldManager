@@ -36,8 +36,10 @@ public final class WorldManager extends JavaPlugin {
     private void startRamTask() {
         Task.repeat(() -> {
             var rt = Runtime.getRuntime();
-            GUI.setState("memoryTotal", rt.maxMemory());
-            GUI.setState("memoryFree", rt.freeMemory());
+            var maxMemory = rt.maxMemory();
+            var free = rt.freeMemory() + (maxMemory - rt.totalMemory());
+            GUI.setState("memoryTotal", maxMemory);
+            GUI.setState("memoryFree", free);
         }, 20);
     }
 
